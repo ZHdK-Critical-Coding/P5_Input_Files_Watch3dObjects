@@ -76,6 +76,7 @@ function draw() {
 
   let count = 0;              // counter to position models
   let size = width / itemsPerLine; // calculate size spacing per item
+  let offset = size * (itemsPerLine - 1) / 2; // shift so the grid is centred (WEBGL origin is the middle)
 
   // Iterate over all loaded models
   for (let key of Object.keys(models)) {
@@ -85,8 +86,8 @@ function draw() {
 
         // Calculate grid position for the model
         translate(
-          (size * -1) + size * (count % itemsPerLine),       // X position
-          (size * -1.5) + size * Math.floor(count / itemsPerLine) // Y position
+          -offset + size * (count % itemsPerLine),             // X position
+          -offset + size * Math.floor(count / itemsPerLine)    // Y position
         );
 
         // Rotate model for better viewing

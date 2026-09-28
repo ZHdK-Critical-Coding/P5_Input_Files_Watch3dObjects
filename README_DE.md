@@ -13,19 +13,22 @@ landen, z. B. von einem Scanner oder einem anderen Programm.
 Voraussetzungen: macOS oder Linux (der Watcher ist ein Bash-Skript; unter
 Windows Git Bash oder WSL verwenden) und ein aktueller Browser.
 
-1. `.obj`-Dateien in `assets/files` legen (ein `teapot.obj` ist dabei).
-2. In einem Terminal im Projektordner das Watcher-Skript starten:
+`.obj`-Dateien in `assets/files` legen (ein `teapot.obj` ist dabei).
+
+Bibliotheken (in `libraries/`): p5.js 1.10.0, p5.sound 1.0.1 (eingebunden,
+nicht verwendet).
+
+## Ausführen
+
+1. In einem Terminal im Projektordner das Watcher-Skript starten:
    `bash watch.sh` (laufen lassen).
-3. Den Ordner in Visual Studio Code öffnen und Live Server starten (in der
+2. Den Ordner in Visual Studio Code öffnen und Live Server starten (in der
    Statusleiste auf **Go Live** klicken).
-4. Modelle in `assets/files` hinzufügen oder entfernen. Mit der Maus ziehen,
+3. Modelle in `assets/files` hinzufügen oder entfernen. Mit der Maus ziehen,
    um die Szene zu drehen.
 
 Ein Browser kann den Inhalt eines Ordners nicht auflisten. Deshalb schreibt
 `watch.sh` die Dateiliste in `assets/list.txt`, die der Sketch dann liest.
-
-Bibliotheken (in `libraries/`): p5.js 1.10.0, p5.sound 1.0.1 (eingebunden,
-nicht verwendet).
 
 ## Coding-Hilfe
 
@@ -42,6 +45,8 @@ nicht verwendet).
 - **`setup()`**: erstellt eine WEBGL-Zeichenfläche von 600 × 600 Pixeln und
   stellt `angleMode` auf Grad.
 - **`draw()`**: aktiviert `orbitControl()` und `lights()` und zeichnet alle
-  geladenen Modelle in einem Raster, `itemsPerLine` (4) pro Zeile. Die
-  Werte in `translate()` legen die Rasterposition fest, `rotateZ(180)` /
+  geladenen Modelle in einem Raster, `itemsPerLine` (4) pro Zeile. `offset`
+  wird aus `itemsPerLine` berechnet, damit das Raster auf der
+  Zeichenfläche zentriert ist; `translate()` legt die Rasterposition jedes
+  Modells fest, `rotateZ(180)` /
   `rotateY(180)` stellen die Modelle aufrecht – für eigene Dateien anpassen.
